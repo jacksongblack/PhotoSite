@@ -1,0 +1,30 @@
+<div class="login">
+  <div class="login-screen">
+    <div class="login-icon">
+      <%= image_tag("login/icon.png", alt: 'Welcome to Mail App') %>
+      <h4>欢迎进入
+        <small>后台管理</small>
+      </h4>
+    </div>
+    <%= form_tag do %>
+        <div class="login-form">
+          <div class="control-group">
+            <!--<input type="text" class="login-field" value="" placeholder="请输入你的用户名" id="login-name" />-->
+            <%= text_field_tag(:name, params[:name], type: "text", class: "login-field", placeholder: "请输入你的用户名", id: "login-name") %>
+            <label class="login-field-icon fui-user" for="login-name"></label>
+          </div>
+
+          <div class="control-group">
+            <!--<input type="password" class="login-field" value="" placeholder="请输入你的密码" id="login-pass" />-->
+            <%= password_field_tag(:password, params[:password], type: "password", class: "login-field", placeholder: "请输入你的密码", id: "login-pass") %>
+            <label class="login-field-icon fui-lock" for="login-pass"></label>
+          </div>
+
+          <!--<a class="btn btn-primary btn-large btn-block" href="#">Login</a>-->
+          <%= submit_tag "登录", class: "btn btn-primary btn-large btn-block" %>
+          <!--<a class="login-link" href="#">Lost your password?</a>-->
+    <% end %>
+
+    </div>
+  </div>
+</div>

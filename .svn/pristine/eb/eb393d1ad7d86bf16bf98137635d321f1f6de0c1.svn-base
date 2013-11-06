@@ -1,0 +1,33 @@
+<%= form_for(@announcement,:html => {:size=>"60%"}) do |f| %>
+  <% if @announcement.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@announcement.errors.count, "error") %> prohibited this announcement from being saved:</h2>
+
+      <ul>
+      <% @announcement.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div id="fe">
+  <div class="edit_field">
+    <%= f.label :name , "标题" %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="edit_field">
+    <%= f.label :content ,"内容" %><br />
+    <%= f.text_area :content  %>
+  </div>
+  <div class="edit_field">
+    <%= f.label :summary ,"内容简介" %><br />
+
+    <%= f.text_field :summary %>
+  </div>
+  <div class="actions">
+    <%= f.submit "上传动态"%>
+  </div>
+    <%= link_to '退出编辑', announcements_path %>
+ </div>
+<% end %>

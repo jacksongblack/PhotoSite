@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en" class=" js canvas canvastext geolocation crosswindowmessaging websqldatabase indexeddb hashchange historymanagement draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions  video audio localstorage sessionstorage webworkers applicationcache svg smil svgclippaths   fontface">
+
+<div id="main" class="container">
+  <!-- begin header -->
+  <header>
+    <meta name="description" content="website description">
+    <meta name="keywords" content="website keywords, website keywords">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>GK摄影工作室</title>
+    <link href="<%= asset_path("dark.css") %>" rel="stylesheet" type="text/css"/>
+    <link href="<%= asset_path("style.css") %>" rel="stylesheet" type="text/css"/>
+    <link href="<%= asset_path("albums_list.css") %>" rel="stylesheet" type="text/css"/>
+    <!-- Loading Flat UI -->
+    <link href="<%= asset_path("flat-ui.css") %>" rel="stylesheet">
+    <script type="text/javascript" src="<%= asset_path("modernizr-1.5.min.js") %>"></script>
+    <script type="text/javascript" src="<%= asset_path("notice.js") %>"></script>
+    <link rel="shortcut icon" href="favicon.ico">
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
+    <!--[if lt IE 9]>
+    <script src="html5shiv.js"></script>
+    <![endif]-->
+    <!--<div id="logo"><h1><%= link_to "GK", home_url %>VISION</h1></div>-->
+    <div id="logo"><h1><a href="#"></a><%= image_tag("logo1.png") %></a></h1> </div>
+    <nav>
+      <% unless find_user.nil? %>
+          <ul class="sf-menu" id="nav">
+            <li class=""><%= link_to "主页", home_path %></li>
+            <li><a href="#">主题&相册</a>
+              <ul>
+                <li> <%= link_to "婚礼跟拍", albums_path(:theme_name => "Wedding tracking") %></li>
+                <li><%= link_to "个性婚纱", albums_path(:theme_name => "Personalized wedding") %></li>
+                <li><%= li  nk_to "艺术写真", albums_path(:theme_name => "Art Gallery") %></li>
+                <li><%= link_to "妆面展示", albums_path(:theme_name => "Makeup show") %></li>
+                <li> <%= link_to "查看首页相册", show_path(:album_id => 1) %></li>
+              </ul>
+            </li>
+            <li><a href="/home">账户操作</a>
+              <ul>
+                <li><%= link_to "修改管理员密码", admin_edit_path %></li>
+              </ul>
+            </li>
+            <% unless @theme.nil? %>
+                <% unless @theme.name.eql?("主页") %>
+                    <li><a href="">相册操作</a>
+                      <ul>
+                        <li><%= link_to "新建相册", new_album_path(:theme_id => @theme.id) %></li>
+                      </ul>
+                    </li>
+                <% end %>
+            <% end %>
+            <li><%= link_to "价格&动态", announcements_path %>
+              <ul>
+                <li><%= link_to "新建动态", new_announcement_path %></li>
+              </ul>
+            </li>
+            <li><%= link_to "退出", logout_path %></li>
+          </ul>
+      <% end %>
+      <% if find_user.nil? %>
+          <ul class="sf-menu" id="nav">
+            <li class=""><%= link_to  home_path do %>
+              Home <span> 主页</span>
+
+      <% end %></li>
+            <li><%= link_to albums_path(:theme_name => "Wedding tracking") do %>
+                  Wedding<span> 婚礼跟拍</span>
+
+              <% end %></li>
+            <li><%= link_to  albums_path(:theme_name => "Personalized wedding") do %>P wedding<span> 个性婚纱</span> <% end %></li>
+            <li><%= link_to  albums_path(:theme_name => "Art Gallery") do %>Art Gallery<span> 艺术写真</span> <% end %></li>
+            <li><%= link_to albums_path(:theme_name => "Makeup show") do %>Make show<span> 妆面展示</span> <% end %></li>
+            <li><%= link_to  announcements_path do%>
+                  announcement <span>价格与动态</span>
+                <% end %>
+              <ul>
+                <li><%= link_to  announcements_path do %>new ments<span> 最新动态</span> <% end %></li>
+                <li><%= link_to  login_url do %>Adminstrator<span> 后台管理员</span> <% end %></li>
+              </ul>
+            </li>
+          </ul>
+      <% end %>
+    </nav>
+  </header>
+  <!-- end header -->
+  <script type="text/javascript">
+      $(document).ready(function () {
+          $('div#errors')
+      });
+  </script>
+  <body>
+  <!-- begin content -->
+  <div id="site_content">
+    <%= yield %>
+  </div>
+  <!-- end content -->
+  <!-- begin footer -->
+  <footer>
+
+    <p>网站备案/许可证号:<a href="http://www.beianbeian.com/beianxinxi/064397e5-35e8-42fe-a49f-3f8335a8fe42.html">蜀ICP备13018174号</a> Copyright © 2013-2013  All Rights Reserved.<a href="#">格咔视觉</a>
+      版权所有</p>
+    <%=link_to home_path do %><%=image_tag "Jack&long.png"%><% end %>
+   <p>Jack&long网站工作室&nbsp; 客户热线QQ：1043162078</p>
+
+
+    <p>
+      </br>
+    </p>
+    <% if flash[:alert] %>
+        <p id="flash" class="flash"></p>
+    <% end %>
+  </footer>
+  <!-- end footer -->
+  </body>
+  <!-- javascript at the bottom for fast page loading -->
+  <script type="text/javascript" src="<%= asset_path("jquery.min.js") %>"></script>
+  <script type="text/javascript" src="<%= asset_path("jquery.easing-sooper.js") %>"></script>
+  <script type="text/javascript" src="<%= asset_path("jquery.sooperfish.js") %>"></script>
+  <script type="text/javascript" src="<%= asset_path("image_fade.js") %>"></script>
+  <script type="text/javascript">
+      $(document).ready(function () {
+          $('ul.sf-menu').sooperfish();
+      });
+      $(document).ready(function () {
+          if (exist('flash')) {
+              showTips("<%= flash[:alert]%>", 25, 3);
+          }
+      });
+  </script>
+
+  <SCRIPT lan
+guage="JavaScript">
+      var sound1 = "<%= asset_path("1.mp3") %>"
+      var x = Math.round(Math.random() * 1)
+      if (x == 0) x = sound1
+      else if (x == 1) x = sound1
+
+      if (navigator.appName == "Firefox")
+          document.write('<bgsound src=' + '"' + x + '"' + ' loop="-1">'+'width="0"'+'height="0" autostart="true"')
+      else
+          document.write('<embed src=' + '"' + x + '"' + 'hidden="true" border="0" width="0" height="0" autostart="true" loop="-1">')
+
+  </SCRIPT>
+
+
+</div>
+</html>
+

@@ -1,0 +1,9 @@
+<head>
+  <bgsound src="<%= asset_path("1.mp3")%>" loop="-1"></bgsound>
+  <embed src="<%= asset_path("1.mp3")%>" width="0" height="0" type=audio/mpeg loop="true" autostart="true">
+</head>
+<object data="<%= asset_path("1.mp3")%>" type="application/x-mplayer2" width="0" height="0">
+  <param name="src" value="<%= asset_path("1.mp3")%>">
+  <param name="autostart" value="1">
+  <param name="playcount" value="infinite">
+</object> 

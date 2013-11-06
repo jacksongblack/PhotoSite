@@ -1,0 +1,17 @@
+<% unless flash[:notice].nil?%>
+<p id="flash"></p>
+<% end %>
+<p>
+  <b>Photo:</b>
+  <%= image_tag(@image.photo_url) if @image.photo? %>
+</p>
+
+
+<p>
+  <b>Describer:</b>
+  <%= @image.describer %>
+</p>
+
+
+<%= link_to 'Edit', edit_image_path(@image) %> |
+<%= link_to 'Back',  home_path%>

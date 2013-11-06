@@ -1,0 +1,14 @@
+class FlashHomeController < ApplicationController
+  layout "nil_page"
+  skip_before_filter :authorize
+  def flash_home
+  end
+
+  def music
+
+  end
+
+  def error
+
+  end
+end

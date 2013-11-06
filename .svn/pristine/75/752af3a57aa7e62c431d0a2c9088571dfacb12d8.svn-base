@@ -1,0 +1,28 @@
+<%= form_for(@album) do |f| %>
+  <% if @album.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@album.errors.count, "error") %> prohibited this album from being saved:</h2>
+
+      <ul>
+      <% @album.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div id="fi">
+  <div class="field">
+    <%= f.label :name,  "相册名称"%><br />
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field" style="display:none">
+    <% f.label :theme_id %><br />
+    <%= f.number_field :theme_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit "确定" %>
+  </div>
+    </div>
+<% end %>
