@@ -1,6 +1,0 @@
-    <ul class="slideshow">
-      <% @images.each do |image|%>
-      <li><img width="950" height="450" src="<%= image.photo_url %>" alt="<%= image.describer%>" /></li>
-     <% end %>
-    </ul>
-
